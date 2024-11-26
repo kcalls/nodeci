@@ -22,7 +22,7 @@ jobs:
         node-version: 16
 
     - name: Install dependencies
-      run: npm install
+      run: npm install --save-dev jest ts-jest @types/jest
 
     - name: Build project
       run: npm run build
