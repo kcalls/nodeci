@@ -27,5 +27,25 @@ jobs:
     - name: Build project
       run: npm run build
 
-    - name: Run tests
-      run: npm test
+    - name: Run tests and generate coverage
+      run: npm test -- --coverage
+      env:
+        CI: true
+
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: build-artifacts
+        path: dist/
+
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: coverage/test-results.xml
+
+    - name: Upload code coverage reports
+      uses: actions/upload-artifact@v3
+      with:
+        name: code-coverage
+        path: coverage/
