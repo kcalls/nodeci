@@ -49,3 +49,11 @@ jobs:
       with:
         name: code-coverage
         path: coverage/
+
+    - name: Generate  Summary
+      id: run_summary
+      run: |
+        echo "## Run Summary" >> $GITHUB_STEP_SUMMARY
+        echo "- Artifact: artifact" >> $GITHUB_STEP_SUMMARY
+        echo "- Version: version" >> $GITHUB_STEP_SUMMARY
+        echo "- Repository URL: repo" >> $GITHUB_STEP_SUMMARY
