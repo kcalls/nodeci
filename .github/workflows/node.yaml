@@ -31,8 +31,6 @@ jobs:
       run: npm test -- --coverage
       env:
         CI: true
-    
-    - run: find .
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
@@ -40,11 +38,11 @@ jobs:
         name: build-artifacts
         path: dist/
 
-    # - name: Upload test results
-    #   uses: actions/upload-artifact@v3
-    #   with:
-    #     name: test-results
-    #     path: coverage/test-results.xml
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      with:
+        name: test-results
+        path: test-report.xml
 
     - name: Upload code coverage reports
       uses: actions/upload-artifact@v3
