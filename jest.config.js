@@ -4,14 +4,8 @@ module.exports = {
     moduleNameMapper: {
         '^@/(.*)$': '<rootDir>/src/$1',
     },
-    reporters: [
-        'default',
-        [
-            'jest-junit',
-            {
-                outputDirectory: 'coverage',
-                outputName: 'test-results.xml',
-            },
-        ],
-    ],
+    collectCoverage: true, // Ensures coverage information is collected
+    coverageDirectory: './coverage', // Specifies where coverage reports are stored
+    coverageReporters: ['lcov', 'text-summary'], // LCov is needed for SonarQube
+    testResultsProcessor: 'jest-sonar-reporter',
 };
