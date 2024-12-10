@@ -31,6 +31,8 @@ jobs:
       run: npm test -- --coverage
       env:
         CI: true
+    
+    - run: find .
 
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
